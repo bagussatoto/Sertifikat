@@ -1,12 +1,8 @@
-# Codeigniter 3 with HMVC
+# Aplikasi Cetak Piagam menggunakan Codeigniter 
 
-This is the combination between 3 CodeIgniter and HMVC Modular Extension (created by "wiredesignz").
-
-This version is already configured to work with HMVC, Eliminating the need to download the files HMVC on Bitbucket and copy to the Corresponding folders.
-
-Just download this version and start using.
 
 Aplikasi Cetak Piagam
+
 Aplikasi Cetak Piagam / Sertifikat dibuat dengan PHP dan MySQL sebagai databasenya. Dengan Aplikasi ini anda akan sangat terbantu dalam membuat, mengelola sekaligus mencetak Piagam atau Sertifikat secara masal dari back end yang telah di sediakan. Tidak hanya itu dalam program aplikasi ini seluruh peserta bisa di input secara manual atau pun import dari file excel yang telah kami sedikan formatnya.
 
 Untuk template atau border piagam / sertifikat sendiri telah kami sedikan contohnya di dalam Aplikasi sehingga untuk penyesuaiannya anda bisa membuat file gambar serupa atau seukuran fixelnya. Tidak hanya itu, program ini bisa di akses secara online (di online kan) dengan di simpan di hosting dengan tampilan yang sudah responsive (menyesuaikan dengan gadget / perangkat) yang mengaksesnya.
