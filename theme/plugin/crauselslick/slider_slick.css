@@ -1,0 +1,27 @@
+.people_slider {
+  margin: 60px auto;
+  max-width: 1200px;
+
+}
+.people_slider {
+  flex: 1 1 0;
+}
+
+.inner {
+  padding: 6px;
+}
+
+.right{
+    position: absolute;
+    z-index: 1000;
+    top: 50%;
+    right: -20px;
+    color: #BFAFB2;
+}
+.left{
+    position: absolute;
+    z-index: 1000;
+    top: 50%;
+    left: -20px;
+    color: #BFAFB2;
+}

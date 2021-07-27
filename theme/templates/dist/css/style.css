@@ -1,0 +1,15 @@
+.con-page{min-height:500px;}
+.padtop-0{padding-top:0px;}
+.headertitle{
+padding: 15px 0px;
+}
+.headertitle h1{
+font-size:1.8rem;
+}
+.displaynone{
+	display:none;
+}
+
+.vimg{
+	background:#f4f4f4;
+}
