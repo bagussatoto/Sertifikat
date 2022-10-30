@@ -148,7 +148,7 @@
     "rollup": "^1.26.3",
     "rollup-plugin-babel": "^4.3.3",
     "set-value": "^3.0.1",
-    "style-loader": "^1.0.0",
+    "style-loader": "^3.0.0",
     "terser": "^4.3.9"
   }
 }
