@@ -101,7 +101,7 @@
     "filterizr": "^2.2.3",
     "flag-icon-css": "^3.4.5",
     "flot": "^3.2.13",
-    "fs-extra": "^8.1.0",
+    "fs-extra": "^10.0.0",
     "icheck-bootstrap": "^3.0.1",
     "inputmask": "^4.0.9",
     "ion-rangeslider": "^2.3.0",
