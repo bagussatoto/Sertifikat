@@ -19,6 +19,6 @@
     "grunt-cli": "~0.1.9",
     "grunt": "~0.4.1",
     "grunt-contrib-watch": "~0.5.3",
-    "color": "~0.4.4"
+    "color": "~0.11.0"
   }
 }
