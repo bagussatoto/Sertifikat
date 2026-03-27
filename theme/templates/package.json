@@ -134,7 +134,7 @@
     "autoprefixer": "^9.7.1",
     "babel-eslint": "^10.0.3",
     "browser-sync": "^2.26.7",
-    "clean-css-cli": "^4.3.0",
+    "clean-css-cli": "^5.0.0",
     "css-loader": "^3.2.0",
     "eslint": "^6.6.0",
     "eslint-plugin-compat": "^4.0.0",
