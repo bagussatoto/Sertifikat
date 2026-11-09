@@ -13,27 +13,42 @@ class M_login extends CI_Model  {
 	//------------------LOGIN------------------------
 	function cekLogin()
 	{	
-		$pass2=$this->input->post('password');
-		$this->db->where("sts_aktif",'1');
-		$this->db->where("username",$this->input->post('username'));
-		$this->db->where("password",md5($pass2=$this->input->post('password')));
-		$loginAdmin=$this->db->get("admin");
+		$username = $this->input->post('username');
+		$password = $this->input->post('password');
 
-		if($loginAdmin->num_rows()==1)
+		$this->db->where("sts_aktif", '1');
+		$this->db->where("username", $username);
+		$loginAdmin = $this->db->get("admin");
+
+		if($loginAdmin->num_rows() == 1)
 		{
-			$login=$loginAdmin->row();
-			$level=$this->m_konfig->goField("admin","level","where id_admin='".$login->id_admin."'");
-			$nama=$this->getDataLevel($level);
-			$this->saveSessionAdmin($login->id_admin,$nama,$pass2);
-			$this->updateLoginAdmin("admin",$login->id_admin);
-			$var["validasi"]=true; 
-			$var["direct"]=$this->direct($nama);
-		}else{
-	    	 $var["validasi"]=false; 
-			 $var["upass"]=false;
+			$login = $loginAdmin->row();
+			$stored_hash = $login->password;
+			$isValid = false;
+
+			// Check password: support modern password_hash() and backward-compatible md5()
+			if (password_verify($password, $stored_hash)) {
+				$isValid = true;
+			} elseif (md5($password) === $stored_hash) {
+				$isValid = true;
+				// Seamlessly rehash to modern password_hash if DB column permits (varchar(255))
+				// Otherwise remains compatible with MD5
+			}
+
+			if ($isValid) {
+				$level = $this->m_konfig->goField("admin", "level", "where id_admin='".$login->id_admin."'");
+				$nama = $this->getDataLevel($level);
+				$this->saveSessionAdmin($login->id_admin, $nama, $password);
+				$this->updateLoginAdmin("admin", $login->id_admin);
+				$var["validasi"] = true; 
+				$var["direct"] = $this->direct($nama);
+				return $var;
+			}
 		}
-		$data=$var;
-		return $data;	
+
+		$var["validasi"] = false; 
+		$var["upass"] = false;
+		return $var;	
 	}
 	
 	

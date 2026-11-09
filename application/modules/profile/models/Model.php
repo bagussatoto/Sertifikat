@@ -88,14 +88,19 @@ class Model extends ci_Model
 		$idu=$this->session->userdata('id');
 		$userDB=$this->m_konfig->dataProfile($idu);
 		$password = $userDB->password;
-		$passold = trim(md5($this->input->post('passold')));
+		$passold = trim($this->input->post('passold'));
 		$passnew = trim($this->input->post('passnew'));
 		$retpass = trim($this->input->post('retpass'));
+
 		if($passold=='' || $passnew=='' || $retpass==''){
 			$var['gagal']=false;
 			$var['info']="Make sure all fields are filled";
 			return $var;
-		}else if($passold != $password){
+		}
+
+		// Verify old password (supports both password_hash and md5)
+		$oldValid = password_verify($passold, $password) || (md5($passold) === $password);
+		if(!$oldValid){
 			$var['gagal']=false;
 			$var['info']="The old password is not suitable";
 			return $var;
@@ -104,14 +109,11 @@ class Model extends ci_Model
 			$var['info']="Please repeat the password correctly";
 			return $var;
 		}else{
-
-			$this->db->set("password",$this->security->xss_clean(md5($passnew)));
+			$this->db->set("password", md5($passnew));
 			$this->db->where("id_admin",$idu);
 			$this->db->update($this->admin);
 			return $var;
 		}
-
-		
 	}
 
 }
