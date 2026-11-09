@@ -215,7 +215,8 @@ class Data_sertifikat extends CI_Controller {
 		  //$html2pdf->AddFont('robotomedium', 'normal', 'robotomedium.php');
 		  $html2pdf->setDefaultFont('times');
 	 	  $html2pdf->writeHTML($isi, isset($_GET['vuehtml']));
-	 	  $html2pdf->Output('view.pdf','FI');
+	 	  $filename = 'sertifikat_'.(!empty($id) ? str_replace(',', '_', $id) : 'all').'.pdf';
+	 	  $html2pdf->Output($filename, 'I');
 	 	}
 	 	catch(HTML2PDF_exception $e){
 			echo $e;
@@ -292,7 +293,8 @@ class Data_sertifikat extends CI_Controller {
 		  //$html2pdf->AddFont('robotomedium', 'normal', 'robotomedium.php');
 		  $html2pdf->setDefaultFont('times');
 	 	  $html2pdf->writeHTML($isi, isset($_GET['vuehtml']));
-	 	  $html2pdf->Output('view.pdf','FI');
+	 	  $filename = 'sertifikat_'.(!empty($id) ? str_replace(',', '_', $id) : 'all').'.pdf';
+	 	  $html2pdf->Output($filename, 'I');
 	 	}
 	 	catch(HTML2PDF_exception $e){
 			echo $e;
@@ -326,7 +328,8 @@ class Data_sertifikat extends CI_Controller {
 		  //$html2pdf->AddFont('robotomedium', 'normal', 'robotomedium.php');
 		  $html2pdf->setDefaultFont('times');
 	 	  $html2pdf->writeHTML($isi, isset($_GET['vuehtml']));
-	 	  $html2pdf->Output('view.pdf','FI');
+	 	  $filename = 'sertifikat_'.(!empty($id) ? str_replace(',', '_', $id) : 'all').'.pdf';
+	 	  $html2pdf->Output($filename, 'I');
 	 	}
 	 	catch(HTML2PDF_exception $e){
 			echo $e;

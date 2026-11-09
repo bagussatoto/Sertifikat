@@ -121,7 +121,8 @@ class Data_template extends CI_Controller {
 		  //$html2pdf->AddFont('robotomedium', 'normal', 'robotomedium.php');
 		  $html2pdf->setDefaultFont('times');
 	 	  $html2pdf->writeHTML($isi, isset($_GET['vuehtml']));
-	 	  $html2pdf->Output('view.pdf','FI');
+	 	  $filename = 'template_preview.pdf';
+	 	  $html2pdf->Output($filename, 'I');
 	 	}
 	 	catch(HTML2PDF_exception $e){
 			echo $e;
