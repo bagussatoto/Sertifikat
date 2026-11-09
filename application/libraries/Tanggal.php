@@ -337,37 +337,34 @@ class tanggal
 	}
 	function tglbulanThn($id) 
 	{
-	$data=explode("-",$id);
-	$tgl=$data[2];
-	$bln=$data[1];
-	$thn=$data[0];
+		if(empty($id)) {
+			return "";
+		}
+		$data=explode("-",$id);
+		if(count($data)<3) {
+			return $id;
+		}
+		$tgl=$data[2];
+		$bln=(int)$data[1];
+		$thn=$data[0];
 
-		if($bln==1){
-		$dataBulan= "Januari";}
-		elseif($bln==2){
-		$dataBulan=  "Februari";}
-		elseif($bln==3){
-		$dataBulan=  "Maret";}
-		elseif($bln==4){
-		$dataBulan=  "April";}
-		elseif($bln==5){
-		$dataBulan=  "Mei";}
-		elseif($bln==6){
-		$dataBulan=  "Juni";}
-		elseif($bln==7){
-		$dataBulan=  "Juli";}
-		elseif($bln==8){
-		$dataBulan=  "Agustus";}
-		elseif($bln==9){
-		$dataBulan=  "September";}
-		elseif($bln==10){
-		$dataBulan=  "Oktober";}
-		elseif($bln==11){
-		$dataBulan=  "November";}
-		elseif($bln==12){
-		$dataBulan=  "Desember";}
+		$namaBulan = array(
+			1 => "Januari",
+			2 => "Februari",
+			3 => "Maret",
+			4 => "April",
+			5 => "Mei",
+			6 => "Juni",
+			7 => "Juli",
+			8 => "Agustus",
+			9 => "September",
+			10 => "Oktober",
+			11 => "November",
+			12 => "Desember"
+		);
+
+		$dataBulan = isset($namaBulan[$bln]) ? $namaBulan[$bln] : "";
 		return $tgl."&nbsp;".$dataBulan."&nbsp;".$thn;
-		
 	}
 	function dateTime($tgl,$seperator) // jadi tanggal indonesia meski ada jam
 	{
