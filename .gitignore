@@ -1,2 +1,24 @@
+# Logs & Cache
+application/logs/log-*.php
+!application/logs/index.html
+application/cache/*
+!application/cache/index.html
+!application/cache/.gitkeep
 
-application/logs/log-2015-03-30.php
+# Temporary / Generated Export Files
+view.pdf
+*.tmp
+*.log
+
+# Environment & Local Server Configurations
+.env
+.env.local
+Thumbs.db
+.DS_Store
+
+# IDE & Editor Settings
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+nbproject/
